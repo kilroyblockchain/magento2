@@ -1,0 +1,45 @@
+<li ><a  href="#one">Home</a></li>
+<li ><a  href="#two">About Us</a></li>
+<li ><a  href="#three">Team</a></li>
+<li ><a  href="#four">Products</a></li>
+<li ><a  href="#five">Services</a></li>
+<li ><a  href="#six">Partners</a></li>
+<li ><a  href="#seven">Blog</a></li>
+<li ><a  href="#eight">Contact Us</a></li>
+
+
+
+<script type="text/javascript">
+    require(['jquery', 'simplebanner'], function(jQuery) {
+      jQuery('.example-1').simpleBanner(
+      {
+        autoPlayDuration:2000,
+        dots:'dots-1',
+        eventType:'mouseenter',
+        animation:'slide'
+      });
+
+    });
+    require(['jquery'], function(jQuery) {
+      jQuery("a[href^='#']").click(function(e) {
+      	e.preventDefault();
+
+      	var position = jQuery(jQuery(this).attr("href")).offset().top -150;
+
+      	jQuery("body, html").animate({
+      		scrollTop: position
+      	}, 1000, );
+      });
+
+      jQuery(window).scroll(function(){
+        if (jQuery(window).scrollTop() >= 150) {
+          jQuery('.page-header').addClass('fixed');
+         }
+         else {
+          jQuery('.page-header').removeClass('fixed');
+         }
+      });
+
+
+    });
+</script>
